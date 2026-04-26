@@ -31,7 +31,7 @@ html, body, [class*="css"] {{
 }}
 
 .header h1, .header p {{
-    color: white;
+    color: white; !important;
 }}
 
 .card {{
