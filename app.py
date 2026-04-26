@@ -12,9 +12,16 @@ GREEN = "#9AC31C"
 
 st.markdown(f"""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
+
+html, body, [class*="css"] {{
+    font-family: 'Jost', sans-serif;
+}}
+
 .stApp {{
     background-color: white;
 }}
+
 .header {{
     background-color: {LYRECO_BLUE};
     padding: 28px;
@@ -22,13 +29,15 @@ st.markdown(f"""
     color: white;
     margin-bottom: 24px;
 }}
+
 .card {{
     background-color: {LIGHT_BLUE};
     padding: 22px;
     border-radius: 18px;
     margin-bottom: 18px;
-    border-left: 6px solid {LYRECO_BLUE};
+    border-left: 6px solid {GREEN};
 }}
+
 .result-card {{
     background-color: {LYRECO_BLUE};
     color: white;
@@ -36,12 +45,14 @@ st.markdown(f"""
     border-radius: 22px;
     margin-top: 24px;
 }}
+
 .green-line {{
     height: 5px;
     background-color: {GREEN};
     border-radius: 5px;
     margin: 16px 0 24px 0;
 }}
+
 .stButton > button {{
     background-color: {LYRECO_BLUE};
     color: white;
@@ -50,10 +61,27 @@ st.markdown(f"""
     border: none;
     font-weight: 600;
 }}
+
 .stButton > button:hover {{
-    background-color: #00506b;
+    background-color: #1f2065;
     color: white;
 }}
+
+/* 🔵 RADIO BUTTON SELECTED STATE FIX */
+div[role="radiogroup"] input:checked + div {{
+    border: 2px solid {LYRECO_BLUE} !important;
+    background-color: #EEF0FF !important;
+}}
+
+div[role="radiogroup"] label:hover {{
+    border-color: {LYRECO_BLUE};
+}}
+
+/* Optional: nicer typography */
+h1, h2, h3, h4 {{
+    font-weight: 600;
+}}
+
 </style>
 """, unsafe_allow_html=True)
 
