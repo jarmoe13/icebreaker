@@ -6,9 +6,9 @@ st.set_page_config(
     layout="centered"
 )
 
-LYRECO_BLUE = "#00374B"
-LIGHT_BLUE = "#EAF3F8"
-GREEN = "#78BE20"
+LYRECO_BLUE = "#2D2E87"
+LIGHT_BLUE = "#BFE8FF"
+GREEN = "#9AC31C"
 
 st.markdown(f"""
 <style>
