@@ -7,7 +7,6 @@ st.set_page_config(
 )
 
 LYRECO_BLUE = "#2D2E87"
-LIGHT_BLUE = "#BFE8FF"
 GREEN = "#9AC31C"
 
 st.markdown(f"""
@@ -16,6 +15,7 @@ st.markdown(f"""
 
 html, body, [class*="css"] {{
     font-family: 'Jost', sans-serif;
+    color: {LYRECO_BLUE};
 }}
 
 .stApp {{
@@ -30,12 +30,21 @@ html, body, [class*="css"] {{
     margin-bottom: 24px;
 }}
 
+.header h1, .header p {{
+    color: white;
+}}
+
 .card {{
-    background-color: {LIGHT_BLUE};
-    padding: 22px;
-    border-radius: 18px;
-    margin-bottom: 18px;
+    background-color: white;
+    padding: 18px 0 8px 18px;
     border-left: 6px solid {GREEN};
+    margin-top: 24px;
+    margin-bottom: 8px;
+}}
+
+.card h4 {{
+    color: {LYRECO_BLUE};
+    margin: 0;
 }}
 
 .result-card {{
@@ -44,6 +53,12 @@ html, body, [class*="css"] {{
     padding: 28px;
     border-radius: 22px;
     margin-top: 24px;
+}}
+
+.result-card h2,
+.result-card h3,
+.result-card p {{
+    color: white;
 }}
 
 .green-line {{
@@ -67,17 +82,19 @@ html, body, [class*="css"] {{
     color: white;
 }}
 
-/* 🔵 RADIO BUTTON SELECTED STATE FIX */
-div[role="radiogroup"] input:checked + div {{
-    border: 2px solid {LYRECO_BLUE} !important;
-    background-color: #EEF0FF !important;
+/* Radio button selected color */
+[data-testid="stRadio"] input[type="radio"]:checked {{
+    accent-color: {LYRECO_BLUE};
 }}
 
-div[role="radiogroup"] label:hover {{
-    border-color: {LYRECO_BLUE};
+input[type="radio"] {{
+    accent-color: {LYRECO_BLUE};
 }}
 
-/* Optional: nicer typography */
+label, p, div, span {{
+    color: {LYRECO_BLUE};
+}}
+
 h1, h2, h3, h4 {{
     font-weight: 600;
 }}
@@ -164,13 +181,25 @@ if submitted:
 
     if score <= 50:
         persona = "Legacy Keeper"
-        message = "You value reliability, structure and the foundations that helped Lyreco grow over the last 100 years."
+        message = """
+        You value reliability, structure and the foundations that helped Lyreco grow over the last 100 years.
+        You believe that digital commerce should protect what already works: trust, service quality and operational excellence.
+        Your strength is stability — you make sure innovation does not become chaos.
+        """
     elif score <= 75:
         persona = "Hybrid Optimizer"
-        message = "You balance Lyreco’s operational strength with a clear push toward smarter, more customer-centric digital commerce."
+        message = """
+        You balance Lyreco’s operational strength with a clear push toward smarter, more customer-centric digital commerce.
+        You are pragmatic: you want progress, but you also want it to be scalable, usable and commercially meaningful.
+        Your strength is connecting today’s reality with tomorrow’s opportunities.
+        """
     else:
         persona = "2026 Growth Driver"
-        message = "You are ready to move fast, experiment, personalize and shape the next chapter of Lyreco eCommerce."
+        message = """
+        You are ready to move fast, experiment, personalize and shape the next chapter of Lyreco eCommerce.
+        You see the webshop not only as a transaction channel, but as a strategic growth engine.
+        Your strength is momentum — you push the organization toward smarter, bolder and more future-facing digital experiences.
+        """
 
     st.markdown(f"""
     <div class="result-card">
