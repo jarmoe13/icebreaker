@@ -13,6 +13,7 @@ st.markdown(f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap');
 
+/* GLOBAL FONT + COLOR */
 html, body, [class*="css"] {{
     font-family: 'Jost', sans-serif;
     color: {LYRECO_BLUE};
@@ -22,45 +23,46 @@ html, body, [class*="css"] {{
     background-color: white;
 }}
 
+/* HEADER */
 .header {{
     background-color: {LYRECO_BLUE};
     padding: 28px;
     border-radius: 18px;
-    color: white;
     margin-bottom: 24px;
 }}
 
-.header h1, .header p {{
-    color: white; !important;
+/* FORCE WHITE TEXT IN HEADER */
+.header *,
+.header h1,
+.header h1 span,
+.header p,
+.header p span {{
+    color: white !important;
 }}
 
+/* QUESTION BLOCK */
 .card {{
     background-color: white;
-    padding: 18px 0 8px 18px;
+    padding: 16px 0 6px 16px;
     border-left: 6px solid {GREEN};
     margin-top: 24px;
     margin-bottom: 8px;
 }}
 
-.card h4 {{
-    color: {LYRECO_BLUE};
-    margin: 0;
-}}
-
+/* RESULT */
 .result-card {{
     background-color: {LYRECO_BLUE};
-    color: white;
     padding: 28px;
     border-radius: 22px;
     margin-top: 24px;
 }}
 
-.result-card h2,
-.result-card h3,
-.result-card p {{
-    color: white;
+/* FORCE WHITE IN RESULT */
+.result-card * {{
+    color: white !important;
 }}
 
+/* GREEN LINE */
 .green-line {{
     height: 5px;
     background-color: {GREEN};
@@ -68,6 +70,7 @@ html, body, [class*="css"] {{
     margin: 16px 0 24px 0;
 }}
 
+/* BUTTON */
 .stButton > button {{
     background-color: {LYRECO_BLUE};
     color: white;
@@ -82,19 +85,16 @@ html, body, [class*="css"] {{
     color: white;
 }}
 
-/* Radio button selected color */
-[data-testid="stRadio"] input[type="radio"]:checked {{
-    accent-color: {LYRECO_BLUE};
-}}
-
+/* RADIO COLOR FIX */
 input[type="radio"] {{
     accent-color: {LYRECO_BLUE};
 }}
 
-label, p, div, span {{
-    color: {LYRECO_BLUE};
+[data-testid="stRadio"] input[type="radio"]:checked {{
+    accent-color: {LYRECO_BLUE};
 }}
 
+/* TYPOGRAPHY */
 h1, h2, h3, h4 {{
     font-weight: 600;
 }}
@@ -183,22 +183,22 @@ if submitted:
         persona = "Legacy Keeper"
         message = """
         You value reliability, structure and the foundations that helped Lyreco grow over the last 100 years.
-        You believe that digital commerce should protect what already works: trust, service quality and operational excellence.
-        Your strength is stability — you make sure innovation does not become chaos.
+        You believe that digital commerce should reinforce trust, not replace it.
+        Your strength is stability — you ensure that innovation builds on solid ground.
         """
     elif score <= 75:
         persona = "Hybrid Optimizer"
         message = """
-        You balance Lyreco’s operational strength with a clear push toward smarter, more customer-centric digital commerce.
-        You are pragmatic: you want progress, but you also want it to be scalable, usable and commercially meaningful.
-        Your strength is connecting today’s reality with tomorrow’s opportunities.
+        You balance Lyreco’s operational strength with a clear push toward smarter digital commerce.
+        You focus on solutions that are scalable, efficient and meaningful for customers.
+        Your strength is integration — connecting today’s business with tomorrow’s opportunities.
         """
     else:
         persona = "2026 Growth Driver"
         message = """
-        You are ready to move fast, experiment, personalize and shape the next chapter of Lyreco eCommerce.
-        You see the webshop not only as a transaction channel, but as a strategic growth engine.
-        Your strength is momentum — you push the organization toward smarter, bolder and more future-facing digital experiences.
+        You are ready to move fast, experiment and shape the future of Lyreco eCommerce.
+        You see digital as a strategic growth engine, not just a support channel.
+        Your strength is momentum — pushing the organization toward bold, future-ready solutions.
         """
 
     st.markdown(f"""
